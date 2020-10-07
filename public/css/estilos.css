@@ -1,5 +1,6 @@
 body{
     height: 100vh;
+    overflow: scroll;
 }
 
 #frase{
@@ -32,4 +33,8 @@ body{
 
 .borda-vermelha{
     border: 3px solid #ff6b6b;
+}
+
+.placar{
+    display: none;
 }

@@ -7,6 +7,16 @@ function inserePlacar(){
     const linha = criaLinha(nomeJogador, numPalavras)
     linha.find('.botao-remover').click(removeLinha)
     corpoTabela.append(linha);
+    $('.placar').slideDown(500)
+    scrollPlacar()
+}
+
+function scrollPlacar(){
+    const posicaoPlacar = $('.placar').offset().top
+    console.log(posicaoPlacar);
+    $('html').animate({
+        scrollTop: posicaoPlacar
+    }, 1000)
 }
 
 function criaLinha(nomeJogador, numPalavras){
@@ -31,5 +41,13 @@ function criaLinha(nomeJogador, numPalavras){
 
 function removeLinha(event){
     event.preventDefault()
-    $(this).parent().parent().remove()
+    const linha = $(this).parent().parent()
+    linha.fadeOut(1000)
+    setTimeout(() => {
+        linha.remove()
+    }, 1000)
 }
+
+$('#botao-placar').click(() => {
+    $('.placar').stop().slideToggle()
+})
