@@ -1,7 +1,8 @@
+const nomeJogador = prompt('Qual o seu nome?')
+
 function inserePlacar(){
     const corpoTabela = $("tbody")
     const numPalavras = $('#contador-palavras').text()
-    const nomeJogador = 'Leo'
 
     const linha = criaLinha(nomeJogador, numPalavras)
     linha.find('.botao-remover').click(removeLinha)
