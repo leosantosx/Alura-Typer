@@ -1,0 +1,35 @@
+body{
+    height: 100vh;
+}
+
+#frase{
+    font-size: 20px;
+    text-align: left;
+}
+
+.campo-digitacao{
+    font-size: 20px;
+    height: 150px;
+    outline: none;
+    border: 3px solid #8d9ba8;
+}
+
+.campo-digitacao::placeholder{
+    color: #6e7175;
+}
+
+.campo-desativado{
+    background-color: #dee6e7;
+}
+
+.icones{
+    vertical-align: middle;
+}
+
+.borda-verde{
+    border: 3px solid #4fee69;
+}
+
+.borda-vermelha{
+    border: 3px solid #ff6b6b;
+}
