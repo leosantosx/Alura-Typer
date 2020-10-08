@@ -1,4 +1,4 @@
-const nomeJogador = prompt('Qual o seu nome?')
+const nomeJogador = 'Leo'
 
 function inserePlacar(){
     const corpoTabela = $("tbody")

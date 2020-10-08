@@ -1,5 +1,5 @@
 const campo = $('.campo-digitacao')
-const tempoRestante = $('#tempo-digitacao').text()
+let tempoRestante = $('#tempo-digitacao').text()
 
 $(document).ready(() => {
     inicializaTamanhoFrase()
@@ -15,6 +15,11 @@ function inicializaTamanhoFrase(){
     $('#tamanho-frase').text(tamFrase)
 }
 
+function atualizaTempoInicial(tempo){
+    $('#tempo-digitacao').text(tempo)
+    tempoRestante = tempo
+}
+
 function inicializaContadores(){
     campo.on('input', () => {
         const campo = $('.campo-digitacao').val()
@@ -27,8 +32,8 @@ function inicializaContadores(){
 }
 
 function iniciaCronometro(){
-    let tempoRestante = $('#tempo-digitacao').text()
     campo.one('focus', () => {
+        let tempoRestante = $('#tempo-digitacao').text()
         const cronometroId = setInterval(() => {
             tempoRestante--
             $('#tempo-digitacao').text(tempoRestante)
@@ -41,18 +46,18 @@ function iniciaCronometro(){
 }
 
 function inicializaMarcadores(){
-     const frase = $('#frase').text()
-     campo.on('input', () => {
-         const digitado = campo.val()
-         const comparavel = frase.substr(0, digitado.length)
-         if(digitado == comparavel){
-            campo.removeClass('borda-vermelha')
-            campo.addClass('borda-verde')
-         }else{
-            campo.removeClass('borda-verde')
-            campo.addClass('borda-vermelha')
-         }
-     })
+    campo.on('input', () => {
+        const frase = $('#frase').text()
+        const digitado = campo.val()
+        const comparavel = frase.substr(0, digitado.length)
+        if(digitado == comparavel){
+        campo.removeClass('borda-vermelha')
+        campo.addClass('borda-verde')
+        }else{
+        campo.removeClass('borda-verde')
+        campo.addClass('borda-vermelha')
+        }
+    })
 }
 
 function finalizaJogo(){
