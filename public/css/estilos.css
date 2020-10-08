@@ -38,3 +38,13 @@ body{
 .placar{
     display: none;
 }
+
+#erro{
+    font-size: 17pt;
+    color: #fc3131;
+    display: none;
+}
+
+#spinner{
+    display: none;
+}
