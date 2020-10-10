@@ -1,5 +1,16 @@
 const nomeJogador = 'Leo'
 
+$('#botao-placar').click(mostraPlacar)
+$('#botao-sync').click(sincronizaPlacar)
+
+function mostraPlacar(){
+    $('.placar').stop().slideToggle()
+}
+
+function sincronizaPlacar(){
+    console.log('Sincronizando placar...');
+}
+
 function inserePlacar(){
     const corpoTabela = $("tbody")
     const numPalavras = $('#contador-palavras').text()
@@ -13,7 +24,6 @@ function inserePlacar(){
 
 function scrollPlacar(){
     const posicaoPlacar = $('.placar').offset().top
-    console.log(posicaoPlacar);
     $('html').animate({
         scrollTop: posicaoPlacar
     }, 1000)
@@ -35,7 +45,6 @@ function criaLinha(nomeJogador, numPalavras){
     linhaTr.append(tdNumPalavras)
     linhaTr.append(tdBotaoRemover)
 
-    console.log(linhaTr);
     return linhaTr
 }
 
@@ -47,7 +56,3 @@ function removeLinha(event){
         linha.remove()
     }, 1000)
 }
-
-$('#botao-placar').click(() => {
-    $('.placar').stop().slideToggle()
-})
