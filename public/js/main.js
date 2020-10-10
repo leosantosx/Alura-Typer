@@ -1,3 +1,4 @@
+
 const campo = $('.campo-digitacao')
 let tempoRestante = $('#tempo-digitacao').text()
 
@@ -6,6 +7,7 @@ $(document).ready(() => {
     inicializaContadores()
     inicializaMarcadores()
     iniciaCronometro()
+    atualizaPlacar()
     $('#reinicia-jogo').click(reiniciaJogo)
 })
 
@@ -63,7 +65,12 @@ function inicializaMarcadores(){
 function finalizaJogo(){
     campo.attr('disabled', true)
     campo.toggleClass('campo-desativado')
-    inserePlacar()
+    const nomeJogador = $('.campo-digitacao').val()
+    const dado = {usuario: nomeJogador,
+                  pontos: $('#contador-palavras').text()}   
+    inserePlacar(dado)
+    $('.placar').slideDown(500)
+    scrollPlacar()
 }
 
 function reiniciaJogo(){

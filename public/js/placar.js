@@ -1,5 +1,3 @@
-const nomeJogador = 'Leo'
-
 $('#botao-placar').click(mostraPlacar)
 $('#botao-sync').click(sincronizaPlacar)
 
@@ -8,19 +6,42 @@ function mostraPlacar(){
 }
 
 function sincronizaPlacar(){
-    console.log('Sincronizando placar...');
+    const placar = []
+    const linhas = $('tbody tr')
+    linhas.each(function(){
+        const usuario = $(this).find("td:nth-child(1)").text()
+        const palavras = $(this).find("td:nth-child(2)").text()
+        const score = {
+            usuario: usuario,
+            pontos: palavras
+        }
+
+        placar.push(score)
+    })
+
+    enviaDadosPlacar(placar)
+    
 }
 
-function inserePlacar(){
-    const corpoTabela = $("tbody")
-    const numPalavras = $('#contador-palavras').text()
+function enviaDadosPlacar(placar){
+    dados = {
+        placar: placar
+    }
 
-    const linha = criaLinha(nomeJogador, numPalavras)
+    $.post('http://localhost:3000/placar', dados, () => {
+        console.log('Placar salvo com sucesso!');
+    })
+
+}
+
+function inserePlacar(dado){
+    const corpoTabela = $("tbody")
+    const linha = criaLinha(dado.usuario, dado.pontos)
     linha.find('.botao-remover').click(removeLinha)
     corpoTabela.append(linha);
-    $('.placar').slideDown(500)
-    scrollPlacar()
 }
+
+
 
 function scrollPlacar(){
     const posicaoPlacar = $('.placar').offset().top
@@ -55,4 +76,13 @@ function removeLinha(event){
     setTimeout(() => {
         linha.remove()
     }, 1000)
+}
+
+
+function atualizaPlacar(){
+    $.get('http://localhost:3000/placar', function(data){
+        $(data).each(function(){
+            inserePlacar(this)
+        })
+    })
 }
