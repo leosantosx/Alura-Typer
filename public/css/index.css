@@ -1,9 +1,16 @@
+body{
+	font-family: 'Comfortaa', cursive;
+}
+
+.titulo{
+	padding: 40px;
+}
+
 .card{
 	width: 49%;
 	display: inline-block;
 	vertical-align: top;
 }
-
 
 #botao-jogue{
 	width: 150px;

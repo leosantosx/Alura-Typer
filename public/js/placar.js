@@ -78,11 +78,26 @@ function removeLinha(event){
     }, 1000)
 }
 
+function usuariosJogando(dado){
+    const option = $('<option>').attr('value', dado.usuario).text(dado.usuario)
+    const select = $('#usuarios')
+    select.append(option)
+}
+
+function adicionaSelectize(){
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    })
+}
 
 function atualizaPlacar(){
     $.get('http://localhost:3000/placar', function(data){
         $(data).each(function(){
             inserePlacar(this)
+            usuariosJogando(this)
         })
+    }).always(() => {
+        adicionaSelectize()
     })
 }

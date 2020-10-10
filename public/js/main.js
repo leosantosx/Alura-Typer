@@ -9,6 +9,7 @@ $(document).ready(() => {
     iniciaCronometro()
     atualizaPlacar()
     $('#reinicia-jogo').click(reiniciaJogo)
+
 })
 
 function inicializaTamanhoFrase(){
@@ -65,9 +66,10 @@ function inicializaMarcadores(){
 function finalizaJogo(){
     campo.attr('disabled', true)
     campo.toggleClass('campo-desativado')
-    const nomeJogador = $('.campo-digitacao').val()
-    const dado = {usuario: nomeJogador,
-                  pontos: $('#contador-palavras').text()}   
+    const dado = {
+            usuario: $('#usuarios').val(),
+            pontos: $('#contador-palavras').text()
+    }   
     inserePlacar(dado)
     $('.placar').slideDown(500)
     scrollPlacar()

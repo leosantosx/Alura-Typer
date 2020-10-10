@@ -1,6 +1,9 @@
 body{
     height: 100vh;
     overflow: scroll;
+    background-color: #474f57;
+    color: #f9feff;
+    font-family: 'Comfortaa', cursive;
 }
 
 #frase{
@@ -13,14 +16,15 @@ body{
     height: 150px;
     outline: none;
     border: 3px solid #8d9ba8;
+    padding: 10px;
 }
 
 .campo-digitacao::placeholder{
-    color: #6e7175;
+    color: #f9feff;
 }
 
 .campo-desativado{
-    background-color: #dee6e7;
+    background-color: #57666b;
 }
 
 .icones{
@@ -56,4 +60,22 @@ body{
 
 #botao-sync{
     float: right;
+}
+
+.select-usuarios{
+    display: inline-block;
+}
+
+.select-usuarios{
+    display:inline-block;
+    margin-left: 30px;
+}
+
+#usuarios{
+    display:block;
+}
+
+.selectize-input {
+    width: 150px;
+    vertical-align: middle;
 }
