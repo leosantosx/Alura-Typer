@@ -79,3 +79,8 @@ body{
     width: 150px;
     vertical-align: middle;
 }
+
+.tooltipster-content {
+    background-color: #f9feff;
+    color: #474f57 !important;
+}

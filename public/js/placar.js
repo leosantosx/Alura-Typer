@@ -29,7 +29,14 @@ function enviaDadosPlacar(placar){
     }
 
     $.post('http://localhost:3000/placar', dados, () => {
-        console.log('Placar salvo com sucesso!');
+        $(".tooltip").tooltipster("open")
+    }).fail(() => {
+        $(".tooltip").tooltipster("open").tooltipster("content", "Falha ao sincronizar")
+    })
+    .always(() => {
+        setTimeout(() => {
+            $(".tooltip").tooltipster("close")
+        }, 1200)
     })
 
 }

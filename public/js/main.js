@@ -9,7 +9,7 @@ $(document).ready(() => {
     iniciaCronometro()
     atualizaPlacar()
     $('#reinicia-jogo').click(reiniciaJogo)
-
+    $('.tooltip').tooltipster({ trigger: "custom" })
 })
 
 function inicializaTamanhoFrase(){
